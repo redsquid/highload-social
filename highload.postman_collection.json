@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "635e3310-718b-493b-a5bc-3fe46527c2a3",
+		"name": "highload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jonny23\",\r\n    \"password\": \"qwerty\",\r\n    \"account\": {\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Connor\",\r\n        \"birthDate\": \"1985-02-28\",\r\n        \"sex\": \"MALE\",\r\n        \"city\": \"Lod Angeles\",\r\n        \"interests\": \"Robots\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "qwerty",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "jonny23",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/token",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3f5ff66f-337d-4a4d-9950-b05175199a5a:07a63b34-fc8f-4773-8983-3cedfccb243a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/user/user-20615fd2-6545-444f-8ada-6a4b20b73c33",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"user-20615fd2-6545-444f-8ada-6a4b20b73c33"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
